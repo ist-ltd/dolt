@@ -1,0 +1,13 @@
+#!/bin/sh
+REPO_NAME="$1"
+if ! [[ "$REPO_NAME" =~ "^[a-zA-Z0-9]+$" ]]; then
+  echo "repo name must be alphanumeric"
+fi
+ 
+REPO_PATH="/srv/git/$REPO_NAME.git"
+
+if ! [[ -e "$REPO_PATH" ]]; then 
+    mkdir -p /srv/git/$1.git
+    cd /srv/git/$1.git
+    git init --bare
+fi

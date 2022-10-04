@@ -1,0 +1,6 @@
+#!/bin/sh
+for DIR in $(ls -1 /srv/git/); do
+    if [[ -d "/srv/git/$DIR" ]] && [[ "$DIR" == "*.git" ]]; then
+        echo ${DIR::-4}
+    fi
+done

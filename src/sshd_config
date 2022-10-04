@@ -1,0 +1,13 @@
+Port 22
+
+HostKey /etc/ssh/keys/ssh_host_rsa_key
+AuthorizedKeysFile /etc/ssh/keys/authorized_keys
+
+AllowUsers git
+
+PermitRootLogin no
+AllowTcpForwarding no
+GatewayPorts no
+X11Forwarding no
+PasswordAuthentication no
+PubkeyAuthentication yes
