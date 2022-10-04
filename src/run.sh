@@ -8,4 +8,6 @@ chmod 755 /etc/ssh/keys
 chmod 644 /etc/ssh/keys/authorized_keys
 chmod 600 /etc/ssh/keys/ssh_host_rsa_key
 
+chown git:git -R /srv/git
+
 /usr/sbin/sshd -De
