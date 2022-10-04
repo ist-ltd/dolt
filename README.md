@@ -11,8 +11,8 @@ This should not be used in production scenarios. It is a  development utility.
 Simple usage from a shell with docker installed:
 
 ```bash
-$ ssh-keygen -b 4096 -t rsa -f host_key -q -N "" # create host key
-$ ssh-keygen -b 4096 -t rsa -f user_key -q -N "" # create user key
+$ ssh-keygen -t ed25519 -f host_key -q -N "" # create host key
+$ ssh-keygen -t ed25519 -f user_key -q -N "" # create user key
 
 $ docker create volume keys # create volume for storing SSH keys
 $ docker create volume git # create volume for storing Git repositories
@@ -28,7 +28,7 @@ $ chmod 644 /mnt/keys/authorized_keys
 $ exit
 $ docker run --rm -it \ 
     -v git:/srv/git
-    -v keys:/etc/ssh/keys
+    -v keys:/mnt/keys
     -p 1234:80 \ # port forward 1234 to the container SSH server
     ghcr.io/ist-ltd/dolt:2.0.0 # change 1.0.0 for version of dolt
 Server listening on 0.0.0.0 port 22.
