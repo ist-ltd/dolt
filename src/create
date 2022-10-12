@@ -2,6 +2,7 @@
 REPO_NAME="$1"
 if ! [[ "$REPO_NAME" =~ "^[a-zA-Z0-9]+$" ]]; then
   echo "repo name must be alphanumeric"
+  exit 1
 fi
  
 REPO_PATH="/srv/git/$REPO_NAME.git"
