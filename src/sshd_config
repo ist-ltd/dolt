@@ -5,6 +5,10 @@ AuthorizedKeysFile /etc/ssh/keys/authorized_keys
 
 AllowUsers git
 
+# Support SSH.NET 
+HostKeyAlgorithms=ssh-rsa,ssh-rsa-cert-v01@openssh.com
+PubkeyAcceptedAlgorithms=+ssh-rsa,ssh-rsa-cert-v01@openssh.com
+
 PermitRootLogin no
 AllowTcpForwarding no
 GatewayPorts no
