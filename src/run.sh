@@ -8,6 +8,12 @@ chmod 755 /etc/ssh/keys
 chmod 644 /etc/ssh/keys/authorized_keys
 chmod 600 /etc/ssh/keys/ssh_host_rsa_key
 
+GIT_USERNAME="`cat /mnt/keys/git_username`"
+GIT_PASSWORD="`cat /mnt/keys/git_password`"
+
+git config --global init.defaultBranch "main"
+htpasswd -b -c /srv/git/.htpasswd "$GIT_USERNAME" "$GIT_PASSWORD"
+
 chown git:git -R /srv/git
 
-/usr/sbin/sshd -De
+/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
