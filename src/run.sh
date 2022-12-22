@@ -15,5 +15,6 @@ git config --global init.defaultBranch "main"
 htpasswd -b -c /srv/git/.htpasswd "$GIT_USERNAME" "$GIT_PASSWORD"
 
 chown git:git -R /srv/git
+chown git:git -R /var/lib/nginx
 
 /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
